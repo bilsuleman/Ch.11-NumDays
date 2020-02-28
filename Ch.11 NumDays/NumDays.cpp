@@ -3,6 +3,7 @@
 NumDays::NumDays(int h)
 {
 	hours = h;
+	days = static_cast<double>(h) / 24;
 }
 
 void NumDays::setDays(double d)
@@ -22,7 +23,7 @@ int NumDays::getHours()
 
 double NumDays::getDays()
 {
-	return hours / 24;
+	return static_cast<double>(hours) / 24;
 }
 
 NumDays NumDays::operator+(NumDays b)
@@ -43,14 +44,22 @@ NumDays NumDays::operator-(NumDays b)
 	return *this;
 }
 
-NumDays NumDays::operator++()
+void NumDays::operator++()
 {
 	this->setHours(hours + 1);
-	return *this;
 }
 
-NumDays NumDays::operator--()
+void NumDays::operator++(int)
+{
+	this->setHours(hours + 1);
+}
+
+void NumDays::operator--()
 {
 	this->setHours(hours - 1);
-	return *this;
+}
+
+void NumDays::operator--(int)
+{
+	this->setHours(hours - 1);
 }

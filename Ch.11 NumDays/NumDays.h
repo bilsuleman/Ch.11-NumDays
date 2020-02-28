@@ -11,7 +11,9 @@ public:
 	double getDays();
 	NumDays operator+(NumDays);
 	NumDays operator-(NumDays);
-	NumDays operator++();
-	NumDays operator--();
+	void operator++();
+	void operator++(int);
+	void operator--();
+	void operator--(int);
 
 };
